@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
-import data from '../../data_out.json';
+import data from '../../data/data_out.json';
 
 const getDataByAuthor = (author) => {
   if (author === 'Show All') {

@@ -20,8 +20,8 @@ const renderContent = (author) => {
       { href, title: alt } = {},
       { href: href2, title: alt2 } = {},
       { href: href3, title: alt3 } = {}
-    ] = [] }) => (
-      <article>
+    ] = [] }, index) => (
+      <article key={index}>
         <a href={href} title={alt}>
           <h2>{text}</h2>
           <cite>{href}</cite>
@@ -39,7 +39,7 @@ class IndexPage extends Component {
   constructor(props) {
     super(props);
 
-    console.log('data',props.data);
+    console.log(props.data);
 
     const authors = ['Show All'];
     data.forEach(({from}) => {
@@ -50,12 +50,13 @@ class IndexPage extends Component {
 
     authors.push('Other');
 
-    this.state = {author: 'Show All', authors};
+    this.state = { author: 'Show All', authors };
   }
 
   renderAuthors() {
-    return this.state.authors.map(author => (
+    return this.state.authors.map((author, index) => (
       <button
+        key={index}
         className={this.state.author === author ? 'selected' : ''}
         onClick={() => { this.setState({ author }) }}
       >
