@@ -27,8 +27,8 @@ const renderContent = (author) => {
           <cite>{href}</cite>
           <p className='meta'>added by {from} - <time>{date}</time></p>
         </a>
-        <a href={href2}  title={alt2}>link 2</a>
-        <a href={href3}  title={alt3}>link 3</a>
+        <a href={href2}  title={alt2}><cite>alt 2</cite></a>
+        <a href={href3}  title={alt3}><cite>alt 3</cite></a>
       </article>
     )
   )
