@@ -27,8 +27,24 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h1>
       <nav>
-        <a href='/complex'>Complex View</a>
-        <a href='/'>Simple View</a>
+        <Link
+          to="/complex"
+          style={{
+            color: 'white',
+            textDecoration: 'none',
+          }}
+        >
+          Complex View
+        </Link>
+        <Link
+          to="/"
+          style={{
+            color: 'white',
+            textDecoration: 'none',
+          }}
+        >
+          Simple View
+        </Link>
       </nav>
     </div>
   </div>

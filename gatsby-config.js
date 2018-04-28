@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Agile Blog',
+    title: 'Agile Links',
   },
   plugins: ['gatsby-plugin-react-helmet'],
   pathPrefix: 'agile-static'
