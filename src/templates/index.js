@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
-import data from '../../data_out.json';
 
-const getDataByAuthor = (author) => {
+const getDataByAuthor = (data, author) => {
   if (author === 'Show All') {
     return data;
   }
@@ -14,38 +13,36 @@ const getDataByAuthor = (author) => {
   return data.filter(({from}) => from === author);
 }
 
-const renderSeachResults = (searchResults = []) =>
-  searchResults.map(({ title, description, href }) => (
-    <a href={href}>
-      <h3>{title}</h3>
-      <cite>{href}</cite>
-      <p className='description'>{description}</p>
-    </a>
-  ))
+const renderContent = (data, author) => {
+  const filteredData = getDataByAuthor(data, author)
 
-const renderContent = (author) => {
-  return getDataByAuthor(author).map(
-    ({ from, date, tags, text, searchResults: [
+  console.log('filteredData',filteredData)
+  return filteredData.map(
+    ({
+      from,
+      date, tags, text, searchResults: [
       { href, title: alt } = {},
       { href: href2, title: alt2 } = {},
       { href: href3, title: alt3 } = {}
-    ] = [], searchResults }) => (
+    ] = [] }) => (
       <article>
         <a href={href} title={alt}>
           <h2>{text}</h2>
           <cite>{href}</cite>
           <p className='meta'>added by {from} - <time>{date}</time></p>
         </a>
-        {renderSeachResults(searchResults)}
+        <a href={href2}  title={alt2}><cite>alt 2</cite></a>
+        <a href={href3}  title={alt3}><cite>alt 3</cite></a>
       </article>
     )
   )
 }
 
-
 class IndexPage extends Component {
   constructor(props) {
     super(props);
+    const data = props.data.allTweetsJson.edges.map(({node}) => node);
+
     const authors = ['Show All'];
     data.forEach(({from}) => {
       if (from && !authors.includes(from)) {
@@ -55,7 +52,11 @@ class IndexPage extends Component {
 
     authors.push('Other');
 
-    this.state = {author: 'Show All', authors};
+    this.state = {
+      author: 'Show All',
+      authors,
+      data
+    };
   }
 
   renderAuthors() {
@@ -70,16 +71,38 @@ class IndexPage extends Component {
   }
 
   render() {
+    const { data, author } = this.state;
     return(
       <main>
         <nav>
           <h2>Filter by author</h2>
           {this.renderAuthors()}
         </nav>
-        {renderContent(this.state.author)}
+        {renderContent(data, author)}
       </main>
     )
   }
 }
 
 export default IndexPage
+
+export const allTweets = graphql`
+  query MyQueryName {
+    allTweetsJson {
+      edges {
+        node {
+          from
+          date
+          tags
+          text
+          searchResults {
+            title
+            href
+            description
+          }
+          index
+        }
+      }
+    }
+  }
+`

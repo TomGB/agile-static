@@ -7,10 +7,12 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages'
+        path: `${__dirname}/data`,
+        name: 'data'
       }
-    }
+    },
+    'gatsby-transformer-remark',
+    'gatsby-transformer-json'
   ],
   pathPrefix: 'agile-static'
 }
