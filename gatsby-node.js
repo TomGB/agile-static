@@ -1,7 +1,6 @@
 const path = require('path')
 const postTemplate = path.resolve('src/templates/blog.js');
 const indexTemplate = path.resolve('src/templates/index.js');
-const complexTemplate = path.resolve('src/templates/complex.js');
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
@@ -30,12 +29,18 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
     createPage({
       path: `/`,
-      component: indexTemplate
+      component: indexTemplate,
+      context: {
+        complex: false
+      }
     })
 
     createPage({
       path: `/complex`,
-      component: indexTemplate
+      component: indexTemplate,
+      context: {
+        complex: true
+      }
     })
 
     res.data.allTweetsJson.edges.forEach((_, index) => {
