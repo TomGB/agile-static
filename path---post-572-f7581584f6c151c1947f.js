@@ -1,0 +1,2 @@
+webpackJsonp([67873542069175],{1432:function(e,t){e.exports={data:{tweetsJson:{from:"Emily Webber",date:"26 May 2014",tags:"#agile #lean",text:"Gamestorming » SQUID",searchResults:[],index:572}},pathContext:{index:572}}}});
+//# sourceMappingURL=path---post-572-f7581584f6c151c1947f.js.map
