@@ -1,17 +1,22 @@
 import React from 'react'
 import Helmat from 'react-helmet'
 
-export default function Template({
-  data: {
-    tweetsJson: {
-      from, date, tags, text, searchResults: [
-        { href, title: alt } = {},
-        { href: href2, title: alt2 } = {},
-        { href: href3, title: alt3 } = {}
-      ] = []
+export default function Template(input) {
+
+  if (!input.data.tweetsJson) return null;
+
+  const {
+    data: {
+      tweetsJson: {
+        from, date, tags, text, searchResults
+      }
     }
-  }
-}) {
+  } = input;
+
+  const { href, title: alt } = searchResults && searchResults[0] || {};
+  const { href: href2, title: alt2 } = searchResults && searchResults[1] || {};
+  const { href: href3, title: alt3 } = searchResults && searchResults[2] || {};
+
   return (
     <article>
       <a href={href} title={alt}>
