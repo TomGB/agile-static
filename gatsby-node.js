@@ -35,7 +35,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
     createPage({
       path: `/complex`,
-      component: complexTemplate
+      component: indexTemplate
     })
 
     res.data.allTweetsJson.edges.forEach((_, index) => {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
+import renderSeachResults from './search-results'
 
 const getDataByAuthor = (data, author) => {
   if (author === 'Show All') {
@@ -16,25 +17,33 @@ const getDataByAuthor = (data, author) => {
 const renderContent = (data, author) => {
   const filteredData = getDataByAuthor(data, author)
 
-  console.log('filteredData',filteredData)
   return filteredData.map(
-    ({
-      from,
-      date, tags, text, searchResults: [
-      { href, title: alt } = {},
-      { href: href2, title: alt2 } = {},
-      { href: href3, title: alt3 } = {}
-    ] = [] }) => (
-      <article>
-        <a href={href} title={alt}>
-          <h2>{text}</h2>
-          <cite>{href}</cite>
-          <p className='meta'>added by {from} - <time>{date}</time></p>
-        </a>
-        <a href={href2}  title={alt2}><cite>alt 2</cite></a>
-        <a href={href3}  title={alt3}><cite>alt 3</cite></a>
-      </article>
-    )
+    (item, index) => {
+      const {
+        from,
+        date,
+        tags,
+        text,
+        searchResults
+      } = item;
+
+      const { href, title: alt } = searchResults && searchResults[0] || {};
+      const { href: href2, title: alt2 } = searchResults && searchResults[1] || {};
+      const { href: href3, title: alt3 } = searchResults && searchResults[2] || {};
+
+      return (
+        <article key={index}>
+          <a href={href} title={alt}>
+            <h2>{text}</h2>
+            <cite>{href}</cite>
+            <p className='meta'>added by {from} - <time>{date}</time></p>
+          </a>
+          <a href={href2}  title={alt2}><cite>alt 2</cite></a>
+          <a href={href3}  title={alt3}><cite>alt 3</cite></a>
+          {renderSeachResults(searchResults || [])}
+        </article>
+      )
+    }
   )
 }
 
@@ -60,8 +69,8 @@ class IndexPage extends Component {
   }
 
   renderAuthors() {
-    return this.state.authors.map(author => (
-      <button
+    return this.state.authors.map((author, index) => (
+      <button key={index}
         className={this.state.author === author ? 'selected' : ''}
         onClick={() => { this.setState({ author }) }}
       >
