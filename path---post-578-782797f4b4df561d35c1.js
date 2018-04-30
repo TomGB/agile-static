@@ -1,2 +1,2 @@
-webpackJsonp([33707955737910],{1438:function(e,t){e.exports={data:{tweetsJson:{from:"Emily Webber",date:"26 May 2014",tags:"#agile #lean",text:"Agile Is Dead (Long Live Agility) - PragDave",searchResults:[],index:578}},pathContext:{index:578}}}});
+webpackJsonp([33707955737910],{1439:function(e,t){e.exports={data:{tweetsJson:{from:"Emily Webber",date:"26 May 2014",tags:"#agile #lean",text:"Agile Is Dead (Long Live Agility) - PragDave",searchResults:[],index:578}},pathContext:{index:578}}}});
 //# sourceMappingURL=path---post-578-782797f4b4df561d35c1.js.map
