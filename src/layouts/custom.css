@@ -1,0 +1,53 @@
+nav a {
+  color: white;
+  padding-right: 10px;
+}
+
+main a {
+  color: black;
+  text-decoration: none;
+  padding-right: 10px;
+  display: block;
+}
+
+article {
+  padding-top: 100px;
+}
+
+article h2 {
+  font-size: 24px;
+  font-weight: normal;
+  margin-bottom: 0px;
+}
+
+article .meta {
+  font-size: 18px;
+  color: grey
+}
+
+article h3 {
+  font-weight: normal;
+  font-size: 18px;
+  margin-bottom: 0px
+}
+article cite {
+  font-size: 14px;
+  color: gray
+}
+
+nav button {
+  font-size: 16px;
+  border: 1px solid grey;
+  border-radius: 2px;
+  margin: 2px;
+}
+
+nav button.selected {
+  background: grey;
+  color: white;
+}
+
+section.links {
+  border-left: 4px solid rebeccapurple;
+  padding-left: 10px;
+}

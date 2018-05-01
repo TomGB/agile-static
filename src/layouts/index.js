@@ -2,8 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
+import Info from '../components/info'
 import Header from '../components/header'
 import './index.css'
+import './custom.css'
 
 const Layout = ({ children, data }) => (
   <div>
@@ -23,6 +25,7 @@ const Layout = ({ children, data }) => (
         paddingTop: 0,
       }}
     >
+      <Info />
       {children()}
     </div>
   </div>
