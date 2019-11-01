@@ -1,2 +1,2 @@
-webpackJsonp([0xbe4507e695c1],{1435:function(e,a){e.exports={data:{tweetsJson:{from:"Emily Webber",date:"26 May 2014",tags:"#agile #lean",text:"Hunt and Darton: a model for an agile cafe | Emily Webber",searchResults:[],index:574}},pathContext:{index:574}}}});
+webpackJsonp([0xbe4507e695c1],{1436:function(e,a){e.exports={data:{tweetsJson:{from:"Emily Webber",date:"26 May 2014",tags:"#agile #lean",text:"Hunt and Darton: a model for an agile cafe | Emily Webber",searchResults:[],index:574}},pathContext:{index:574}}}});
 //# sourceMappingURL=path---post-574-a7f66d830c2113e63cbd.js.map
